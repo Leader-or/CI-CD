@@ -21,6 +21,3 @@ jobs:
 
     - name: Run tests
       run: python -m unittest discover .
-
-    - name: Run pylint
-      run: pylint simple_math.py test_simple_math.py || true  # Pour ne pas échouer si score < 10
