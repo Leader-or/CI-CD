@@ -1,0 +1,26 @@
+name: Python CI
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests
+      run: python -m unittest discover .
+
+    - name: Run pylint
+      run: pylint simple_math.py test_simple_math.py || true  # Pour ne pas échouer si score < 10
