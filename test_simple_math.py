@@ -9,5 +9,5 @@ class TestSimpleMath(unittest.TestCase):
     def test_soustraction(self):
         self.assertEqual(SimpleMath.soustraction(5, 3), 2)
 
-if name == 'main':
+if __name__ == '__main__':
     unittest.main()
